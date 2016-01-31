@@ -1,1 +1,1 @@
-# 18-641-Java-Smart-Phone-Development
+# 18-641: Java Smart Phone Development
