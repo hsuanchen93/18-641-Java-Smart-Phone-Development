@@ -1,3 +1,7 @@
+/*
+ * Hsuan Chen (hsuanc)
+ */
+
 package model;
 
 import java.io.Serializable;

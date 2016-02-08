@@ -1,24 +1,28 @@
+/*
+ * Hsuan Chen (hsuanc)
+ */
+
 package model;
 
 import java.io.Serializable;
 
-public class Automotive implements Serializable {
+public class Automobile implements Serializable {
 	private String name;
 	private double baseprice;
 	private OptionSet optset[];
 	
 	/* Constructors */
-	public Automotive() {
+	public Automobile() {
 		name = null;
 		baseprice = -1;
 		optset = null;
 	}
-	public Automotive(String name, double baseprice) {
+	public Automobile(String name, double baseprice) {
 		this.name = name;
 		this.baseprice = baseprice;
 		optset = null;
 	}
-	public Automotive(String name, int size) {
+	public Automobile(String name, int size) {
 		this.name = name;
 		baseprice = -1;
 		optset = new OptionSet[size];
@@ -26,7 +30,7 @@ public class Automotive implements Serializable {
 			optset[i] = new OptionSet();
 		}
 	}
-	public Automotive(String name, double baseprice, int size) {
+	public Automobile(String name, double baseprice, int size) {
 		this.name = name;
 		this.baseprice = baseprice;
 		optset = new OptionSet[size];
@@ -117,6 +121,15 @@ public class Automotive implements Serializable {
 			for(int i=0; i<optset.length; i++) {
 				if(optset[i].getName().equals(nameOld)) {
 					optset[i] = new OptionSet(nameNew, optSize);
+				}
+			}
+		}
+	}
+	public void updateOptionSet(String nameOld, String nameNew) {
+		if(findOptionSet(nameOld).equals(nameOld)) {
+			for(int i=0; i<optset.length; i++) {
+				if(optset[i].getName().equals(nameOld)) {
+					optset[i].setName(nameNew);
 				}
 			}
 		}

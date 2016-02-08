@@ -1,74 +1,92 @@
+/*
+ * Hsuan Chen (hsuanc)
+ */
+
 package driver;
 
-import model.Automotive;
-import util.FileIO;
+import adapter.BuildAuto;
+import adapter.CreateAuto;
+import adapter.UpdateAuto;
+import exception.AutoException;
 
 public class Driver {
 
 	public static void main(String[] args) {
+		/* Test API */
+		/* Creates an Auto instance based on given FordZTW */
+		/* Updates "Color" to "NEW COLOR" and price to be "100.50" */
+		testAPI();
 		
-		/* case 1: regular FordZTW.txt */
-		System.out.printf("<<<<<CASE 1: Regular FordZTW.txt>>>>>\n");
-		//Build Automobile Object from a file.
-		FileIO fileIO = new FileIO();
-		Automotive FordZTW = fileIO.buildAutoObject("FordZTW.txt");
-		//Print attributes before serialization
-		FordZTW.print();
-		//Serialize the object
-		fileIO.serializeAuto(FordZTW, "auto.ser");
-		//Deserialize the object and read it into memory.
-		Automotive newFordZTW = fileIO.deserializeAuto("auto.ser");
-		System.out.printf("-----After Serialization/Deserialization-----\n");
-		newFordZTW.print();
+		/* List out all Custom Exceptions */
+		System.out.println("<-----Custom Exceptions List----->");
+		new AutoException().allExceptions();
+		System.out.println("<-----DONE Custom Exceptions List----->\n");
 		
+		/* Test Exception 1: Automobile Does Not Exist */
+		testException1();
 		
-		/* case 2: 0 Options for Color */
-		System.out.printf("\n\n<<<<<CASE 2: 0 Options for Color>>>>>\n");
-		//Build Automobile Object from a file.
-		Automotive FordZTW_2 = fileIO.buildAutoObject("FordZTW_2.txt");
-		//Print attributes before serialization
-		FordZTW_2.print();
-		//Serialize the object
-		fileIO.serializeAuto(FordZTW_2, "auto_2.ser");
-		//Deserialize the object and read it into memory.
-		Automotive newFordZTW_2 = fileIO.deserializeAuto("auto_2.ser");
-		System.out.printf("-----After Serialization/Deserialization-----\n");
-		newFordZTW_2.print();
+		/* Test Exception 2: Missing base price for Automobile in text file */
+		testException2();
 		
+		/* Test Exception 3: Missing OptionSet data */
+		testException3();
 		
-		/* case 3: 0 OptionSets for FordZTW */
-		System.out.printf("\n\n<<<<<CASE 3: 0 OptionSets for FordZTW>>>>>\n");
-		//Build Automobile Object from a file.
-		Automotive FordZTW_3 = fileIO.buildAutoObject("FordZTW_3.txt");
-		//Print attributes before serialization
-		FordZTW_3.print();
-		//Serialize the object
-		fileIO.serializeAuto(FordZTW_3, "auto_3.ser");
-		//Deserialize the object and read it into memory.
-		Automotive newFordZTW_3 = fileIO.deserializeAuto("auto_3.ser");
-		System.out.printf("-----After Serialization/Deserialization-----\n");
-		newFordZTW_3.print();
+		/* Test Exception 4: Missing Option data */
+		testException4();
 		
-		
-		/* case 4: test update and delete */
-		System.out.printf("\n\n<<<<<CASE 4: Test Update and Delete>>>>>\n");
-		//Build Automobile Object from a file.
-		Automotive FordZTW_4 = fileIO.buildAutoObject("FordZTW_2.txt");
-		System.out.printf("-----Original-----\n");
-		FordZTW_4.print();
-		//update OptionSet and Option
-		FordZTW_4.updateOptionSet("Brakes/Traction Control", "New Option", 2);
-		FordZTW_4.setOption(FordZTW_4.getOptionSet(0), 0, "111111", 0);
-		FordZTW_4.setOption(FordZTW_4.getOptionSet(0), 1, "222222", 1000);
-		FordZTW_4.updateOption("Power Moonroof", "Not Present", "UPDATE", 50);
-		System.out.printf("-----After Updating-----\n");
-		FordZTW_4.print();
-		//delete
-		FordZTW_4.deleteOptionSet("New Option");
-		FordZTW_4.deleteOption("Power Moonroof", "UPDATE");
-		System.out.printf("-----After Deleting-----\n");
-		FordZTW_4.print();
-		
+		/* Test Exception 5: Wrong filename */
+		testException5();
+	}
+	
+	public static void testAPI() {
+		System.out.println("<-----Testing API (Create Auto Instance)----->");
+		CreateAuto autoC = new BuildAuto();
+		UpdateAuto autoU = new BuildAuto();
+		autoC.BuildAuto("FordZTW.txt");
+		autoC.printAuto(autoC.getModelName());
+		System.out.println("<-----Testing API (Update Auto Instance)----->");
+		autoU.updateOptionSetName(autoC.getModelName(), "Color", "NEW COLOR");
+		autoU.updateOptionPrice(autoC.getModelName(), "NEW COLOR", 
+								"Fort Knox Gold Clearcoat Metallic", 100.50);
+		autoC.printAuto(autoC.getModelName());
+		System.out.println("<-----DONE Testing API----->\n");
+	}
+	
+	public static void testException1() {
+		System.out.println("<-----Testing Exception 1----->");
+		CreateAuto autoC = new BuildAuto();
+		autoC.getModelName();
+		System.out.println("<-----DONE Testing Exception 1----->\n");
+	}
+	
+	public static void testException2() {
+		System.out.println("<-----Testing Exception 2----->");
+		CreateAuto autoC = new BuildAuto();
+		autoC.BuildAuto("FordZTW_2.txt");
+		autoC.printAuto(autoC.getModelName());
+		System.out.println("<-----DONE Testing Exception 2----->\n");
+	}
+	
+	public static void testException3() {
+		System.out.println("<-----Testing Exception 3----->");
+		CreateAuto autoC = new BuildAuto();
+		autoC.BuildAuto("FordZTW_3.txt");
+		System.out.println("<-----DONE Testing Exception 3----->\n");
+	}
+	
+	public static void testException4() {
+		System.out.println("<-----Testing Exception 4----->");
+		CreateAuto autoC = new BuildAuto();
+		autoC.BuildAuto("FordZTW_4.txt");
+		System.out.println("<-----DONE Testing Exception 4----->\n");
+	}
+	
+	public static void testException5() {
+		System.out.println("<-----Testing Exception 5----->");
+		CreateAuto autoC = new BuildAuto();
+		autoC.BuildAuto("FordZTW_5.txt");
+		autoC.printAuto(autoC.getModelName());
+		System.out.println("<-----DONE Testing Exception 5----->\n");
 	}
 
 }

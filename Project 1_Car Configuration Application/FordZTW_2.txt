@@ -1,5 +1,3 @@
-Focus Wagon ZTW($18445)
-Options(3):
->Brakes/Traction Control(3):Standard($0),ABS($400),ABS with Advance Trac($1625)
+Focus Wagon ZTW
+Options(1):
 >Power Moonroof(2):Present($595),Not Present($0)
->Color(0):

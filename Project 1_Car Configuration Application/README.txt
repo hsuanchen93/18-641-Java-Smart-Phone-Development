@@ -1,16 +1,25 @@
-Architecture:
-Automotive Class encapsulates both OptionSet Class and Option Class where Option Class is an inner class of the OptionSet Class.
-I designed the architecture so that when the Driver runs simulation and creates Automotive objects, it would not be able to access both OptionSet and Option. Thus, you need getters and setters in order to modify the content of Automotive.
-As for the structure of the model input file, I have the first line to have the model name with the base price in parentheses. Then, the second line gives an overview of how many different OptionSets there are. I designed it this way so that I know how big the OptionSet array is supposed to be. Finally, for each option, it starts the line with character ‘>’ so it’s easy to read. After ‘>’, it will have the name of the OptionSet and number of Options in parentheses so I can create the right size for Option array. After ‘:’, the list of different Options and theirs prices in parentheses follow.
-For the find methods, I return an empty string because there are multiple places where I use String.equals() to compare the strings. Thus, there will be null exceptions if I return null. Also, I set the name property to an empty string in the delete methods due to the same reason.
+util.FileIO: used AutoException.fix(int errorno) to fix internal “missing base price” Exception by asking an user-entered base price (keep asking the user until the user has entered a valid number).
+
+adapter: proxyAutomobile implements all 3 interfaces so implemented all functions within the proxyAutomobile abstract class. Then to create and use API, created the class BuildAuto to extend from proxyAutomobile.
+adapter.CreateAuto: added an extra method to get Automobile’s name since it’s needed in Driver to actually print and update.
+adapter.proxyAutomobile: used FixAuto.fix(int errorno) to fix external “wrong filename” Exception by asking an user-entered filename (keep asking the user until the user has entered a valid filename).
+
+exception.AutoException: logs Exceptions into file “ExceptionLog.txt” and all possible Custom Exceptions are listed in file “Exceptions.txt”.
+exception.FixAutoException: fixes Exceptions 2 and 5 (missing base price and file not found).
+
+
+
 
 src: contains the source code for the assignment
 
-FordZTW.txt: given input
-FordZTW_2.txt.txt: input with 0 Options for Color
-FordZTW_3.txt.txt: input with 0 OptionSets for FordZTW
+FordZTW.txt: given input, used to test API
+FordZTW_2.txt: no base price, used to test catching and fixing Exception 2
+FordZTW_3.txt: missing an OptionSet, used to test catching Exception 3
+FordZTW_4.txt: missing an Option, used to test catching Exception 4
 
-output.txt: FordZTW with given input
-output_2.txt: result of all 4 test cases
+output.txt: output of the Driver
 
-Class Diagram: class diagram for Project 1 Unit 1
+Exceptions.txt: list of all possible Custom Exceptions
+ExceptionLog.txt: log file of exceptions
+
+Class Diagram: class diagram for Project 1 Unit 2 Part A

@@ -1,3 +1,4 @@
+<-----Testing API (Create Auto Instance)----->
 Name: Focus Wagon ZTW
 Base Price: $18445.00
 Option 1: Color
@@ -24,3 +25,103 @@ Option 4: Side Impact Air Bags
 Option 5: Power Moonroof
    Present: $595.00
    Not Present: $0.00
+<-----Testing API (Update Auto Instance)----->
+Name: Focus Wagon ZTW
+Base Price: $18445.00
+Option 1: NEW COLOR
+   Fort Knox Gold Clearcoat Metallic: $100.50
+   Liquid Grey Clearcoat Metallic: $0.00
+   Infra-Red Clearcoat: $0.00
+   Grabber Green Clearcoat Metallic: $0.00
+   Sangria Red Clearcoat Metallic: $0.00
+   French Blue Clearcoat Metallic: $0.00
+   Twilight Blue Clearcoat Metallic: $0.00
+   CD Silver Clearcoat Metallic: $0.00
+   Pitch Black Clearcoat: $0.00
+   Cloud 9 White Clearcoat: $0.00
+Option 2: Transmission
+   Automatic: $0.00
+   Manual: $-815.00
+Option 3: Brakes/Traction Control
+   Standard: $0.00
+   ABS: $400.00
+   ABS with Advance Trac: $1625.00
+Option 4: Side Impact Air Bags
+   Present: $350.00
+   Not Present: $0.00
+Option 5: Power Moonroof
+   Present: $595.00
+   Not Present: $0.00
+<-----DONE Testing API----->
+
+
+<-----Custom Exceptions List----->
+errorno=1, errormsg=Automobile Does Not Exist
+errorno=2, errormsg=Missing Base Price
+errorno=3, errormsg=Missing OptionSet Data
+errorno=4, errormsg=Missing Option Data
+errorno=5, errormsg=File Not Found
+<-----DONE Custom Exceptions List----->
+
+
+<-----Testing Exception 1----->
+02/08/2016 3:56:22 AM: AutoException [errorno=1, errormsg=Automobile Does Not Exist
+<-----DONE Testing Exception 1----->
+
+
+<-----Testing Exception 2----->
+02/08/2016 3:56:22 AM: AutoException [errorno=2, errormsg=Missing Base Price
+Enter Base Price: asdf
+Invalid Base Price
+02/08/2016 3:56:26 AM: AutoException [errorno=2, errormsg=Missing Base Price
+Enter Base Price: 100.37
+Name: Focus Wagon ZTW
+Base Price: $100.37
+Option 1: Power Moonroof
+   Present: $595.00
+   Not Present: $0.00
+<-----DONE Testing Exception 2----->
+
+
+<-----Testing Exception 3----->
+02/08/2016 3:56:31 AM: AutoException [errorno=3, errormsg=Missing OptionSet Data
+<-----DONE Testing Exception 3----->
+
+
+<-----Testing Exception 4----->
+02/08/2016 3:56:31 AM: AutoException [errorno=4, errormsg=Missing Option Data
+<-----DONE Testing Exception 4----->
+
+
+<-----Testing Exception 5----->
+02/08/2016 3:56:31 AM: AutoException [errorno=5, errormsg=File Not Found
+Enter Correct File Name: file
+02/08/2016 3:56:35 AM: AutoException [errorno=5, errormsg=File Not Found
+Enter Correct File Name: FordZTW.txt
+Name: Focus Wagon ZTW
+Base Price: $18445.00
+Option 1: Color
+   Fort Knox Gold Clearcoat Metallic: $0.00
+   Liquid Grey Clearcoat Metallic: $0.00
+   Infra-Red Clearcoat: $0.00
+   Grabber Green Clearcoat Metallic: $0.00
+   Sangria Red Clearcoat Metallic: $0.00
+   French Blue Clearcoat Metallic: $0.00
+   Twilight Blue Clearcoat Metallic: $0.00
+   CD Silver Clearcoat Metallic: $0.00
+   Pitch Black Clearcoat: $0.00
+   Cloud 9 White Clearcoat: $0.00
+Option 2: Transmission
+   Automatic: $0.00
+   Manual: $-815.00
+Option 3: Brakes/Traction Control
+   Standard: $0.00
+   ABS: $400.00
+   ABS with Advance Trac: $1625.00
+Option 4: Side Impact Air Bags
+   Present: $350.00
+   Not Present: $0.00
+Option 5: Power Moonroof
+   Present: $595.00
+   Not Present: $0.00
+<-----DONE Testing Exception 5----->

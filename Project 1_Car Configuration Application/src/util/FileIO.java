@@ -1,15 +1,20 @@
+/*
+ * Hsuan Chen (hsuanc)
+ */
+
 package util;
 
 import java.io.*;
 import java.util.StringTokenizer;
-
-import model.Automotive;
+import exception.AutoException;
+import model.Automobile;
 
 public class FileIO {
 	
 	/* buildAutoObject - create an automotive model from file */
-	public Automotive buildAutoObject(String filename) {
-		Automotive auto = null;
+	public Automobile buildAutoObject(String filename) throws AutoException, FileNotFoundException {
+		Automobile auto = null;
+		double baseprice = 0;
 		try {
 			FileReader file = new FileReader(filename);
 			BufferedReader buff = new BufferedReader(file);
@@ -22,7 +27,17 @@ public class FileIO {
 			line = buff.readLine();
 			delims = "[()]+";
 			String[] size = line.split(delims);
-			auto = new Automotive(info[0], Double.parseDouble(info[1]), Integer.parseInt(size[1]));
+			do {
+				try {
+					baseprice = Double.parseDouble(info[1]);
+				} catch (ArrayIndexOutOfBoundsException e) {
+					//throw new AutoException(2, "Missing Base Price");
+					//fix missing base price exception
+					AutoException autoE = new AutoException(2, "Missing Base Price");
+					baseprice = Double.parseDouble(autoE.fix(2));
+				}
+			} while(baseprice==0);
+			auto = new Automobile(info[0], baseprice, Integer.parseInt(size[1]));
 			
 			//parse OptionSet and Option
 			int optset = -1;
@@ -39,7 +54,8 @@ public class FileIO {
 						String token = st.nextToken();
 						if(token.charAt(0)=='>') {
 							optset++;
-							auto.setOptionSet(optset, token.substring(1), Integer.parseInt(st.nextToken()));
+							int optTotal = Integer.parseInt(st.nextToken());
+							auto.setOptionSet(optset, token.substring(1), optTotal);
 							if(st.hasMoreTokens()) {
 								token = st.nextToken();
 								//create Options
@@ -50,6 +66,9 @@ public class FileIO {
 										token = st.nextToken();
 									}
 									else {
+										if((opt+1) != optTotal) {
+											throw new AutoException(4, "Missing Option Data");
+										}
 										break;
 									}
 									opt++;
@@ -62,14 +81,22 @@ public class FileIO {
 			//close buff and file afterwards
 			buff.close();
 			file.close();
+			
+			//Check if missing OptionSet data
+			if((optset+1) != Integer.parseInt(size[1])) {
+				throw new AutoException(3, "Missing OptionSet Data");
+			}
+			
 		} catch (IOException e) {
-			System.out.println("Error ­­ " + e.toString()); 
+			if(e.toString().split(":")[0].equals("java.io.FileNotFoundException")) {
+				throw new AutoException(5, "File Not Found");
+			}
 		}
 		return auto;
 	}
 	
 	/* serializeAuto - serialization of an automotive model */
-	public void serializeAuto(Automotive auto, String filename) {
+	public void serializeAuto(Automobile auto, String filename) {
 		try {
 				ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename));
 				out.writeObject(auto);
@@ -81,11 +108,11 @@ public class FileIO {
 	}
 	
 	/* deserializeAuto - deserialization of an automotive model */
-	public Automotive deserializeAuto(String filename) {
-		Automotive auto = null;
+	public Automobile deserializeAuto(String filename) {
+		Automobile auto = null;
 		try {
 			ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename));
-			auto = (Automotive)in.readObject();
+			auto = (Automobile)in.readObject();
 		} catch(Exception e) {
 			System.out.print("Error:"+e);
 			System.exit(1);
