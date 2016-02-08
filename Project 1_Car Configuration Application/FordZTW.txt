@@ -1,4 +1,6 @@
-Focus Wagon ZTW($18445)
+Make:Fort
+Model:Focus Wagon ZTW
+Base Price:$18445
 Options(5):
 >Color(10):Fort Knox Gold Clearcoat Metallic($0),Liquid Grey Clearcoat Metallic($0),Infra-Red Clearcoat($0),Grabber Green Clearcoat Metallic($0),Sangria Red Clearcoat Metallic($0),French Blue Clearcoat Metallic($0),Twilight Blue Clearcoat Metallic($0),CD Silver Clearcoat Metallic($0),Pitch Black Clearcoat($0),Cloud 9 White Clearcoat($0)
 >Transmission(2):Automatic($0),Manual($-815)

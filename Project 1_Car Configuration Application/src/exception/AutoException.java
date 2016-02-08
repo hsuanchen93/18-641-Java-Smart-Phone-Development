@@ -105,6 +105,8 @@ public class AutoException extends Exception {
 					System.out.println(line);
 				}
 			}
+			buff.close();
+			file.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

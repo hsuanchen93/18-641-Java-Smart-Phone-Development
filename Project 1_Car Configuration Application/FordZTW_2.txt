@@ -1,3 +1,5 @@
-Focus Wagon ZTW
+Make:Fort
+Model:Model 2
+Base Price:
 Options(1):
 >Power Moonroof(2):Present($595),Not Present($0)

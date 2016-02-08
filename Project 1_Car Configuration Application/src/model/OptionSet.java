@@ -5,22 +5,23 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class OptionSet implements Serializable {
 	private String name;
-	private Option opt[];
+	private ArrayList<Option> opt;
+	private Option choice;
 	
 	/* Constructors - OptionSet */
 	protected OptionSet() {
 		name = null;
 		opt = null;
+		choice = new Option();
 	}
-	protected OptionSet(String name, int size) {
+	protected OptionSet(String name) {
 		this.name = name;
-		opt = new Option[size];
-		for(int i=0; i<opt.length; i++) {
-			opt[i] = new Option();
-		}
+		opt = new ArrayList<Option>();
+		choice = new Option();
 	}
 	
 	/* Inner Class - Option */
@@ -32,6 +33,10 @@ public class OptionSet implements Serializable {
 		protected Option() {
 			name = null;
 			price = -1;
+		}
+		protected Option(String name, double price) {
+			this.name = name;
+			this.price = price;
 		}
 		
 		/* Getters - Option */
@@ -55,19 +60,33 @@ public class OptionSet implements Serializable {
 	protected String getName() {
 		return name;
 	}
-	protected Option[] getOption() {
+	protected ArrayList<Option> getOption() {
 		return opt;
 	}
 	protected Option getOption(int index) {
-		return opt[index];
+		if(index < opt.size() && index >= 0) {
+			return opt.get(index);
+		}
+		return null;
+	}
+	protected Option getOptionChoice() {
+		return choice;
 	}
 	
 	/* Setters - OptionSet */
 	protected void setName(String name) {
 		this.name = name;
 	}
-	protected void setOption(Option[] opt) {
-		this.opt = opt;
+	protected void setOption(String name, double price) {
+		opt.add(new Option(name,price));
+	}
+	protected void setOptionChoice(String name) {
+		for(int i=0; i<opt.size(); i++) {
+			if(opt.get(i).getName().equals(name)) {
+				choice.setName(name);
+				choice.setPrice(opt.get(i).getPrice());
+			}
+		}
 	}
 	
 }

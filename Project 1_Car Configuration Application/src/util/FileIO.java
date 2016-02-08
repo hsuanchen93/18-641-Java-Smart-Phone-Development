@@ -20,16 +20,24 @@ public class FileIO {
 			BufferedReader buff = new BufferedReader(file);
 			boolean eof = false;
 			
-			//read first 2 lines to get Automotive basic info
+			//read first 4 lines to get Automotive basic info
+			//make
+			String delims = "[:$]+";
 			String line = buff.readLine();
-			String delims = "[($)]+";
-			String[] info = line.split(delims);
+			String[] make = line.split(delims);
+			//model
 			line = buff.readLine();
+			String[] model = line.split(delims);
+			//baseprice
+			line = buff.readLine();
+			String[] price = line.split(delims);
+			//OptionSet
 			delims = "[()]+";
+			line = buff.readLine();
 			String[] size = line.split(delims);
 			do {
 				try {
-					baseprice = Double.parseDouble(info[1]);
+					baseprice = Double.parseDouble(price[1]);
 				} catch (ArrayIndexOutOfBoundsException e) {
 					//throw new AutoException(2, "Missing Base Price");
 					//fix missing base price exception
@@ -37,7 +45,7 @@ public class FileIO {
 					baseprice = Double.parseDouble(autoE.fix(2));
 				}
 			} while(baseprice==0);
-			auto = new Automobile(info[0], baseprice, Integer.parseInt(size[1]));
+			auto = new Automobile(make[1], model[1], baseprice);
 			
 			//parse OptionSet and Option
 			int optset = -1;
@@ -55,13 +63,15 @@ public class FileIO {
 						if(token.charAt(0)=='>') {
 							optset++;
 							int optTotal = Integer.parseInt(st.nextToken());
-							auto.setOptionSet(optset, token.substring(1), optTotal);
+							auto.setOptionSet(token.substring(1));
+							//auto.setOptionSet(optset, token.substring(1), optTotal);
 							if(st.hasMoreTokens()) {
 								token = st.nextToken();
 								//create Options
 								opt = 0;
 								while(true) {
-									auto.setOption(auto.getOptionSet(optset), opt, token, Integer.parseInt(st.nextToken()));
+									auto.setOption(auto.getOptionSet(optset), token, Integer.parseInt(st.nextToken()));
+									//auto.setOption(auto.getOptionSet(optset), opt, token, Integer.parseInt(st.nextToken()));
 									if(st.hasMoreTokens()) {
 										token = st.nextToken();
 									}

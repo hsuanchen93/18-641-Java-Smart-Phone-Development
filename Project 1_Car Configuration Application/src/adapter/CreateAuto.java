@@ -11,7 +11,4 @@ public interface CreateAuto {
 	
 	/* This function searches and prints the properties of a given Automodel */
 	public void printAuto(String modelName);
-	
-	/* Returns Automobile's model name */
-	public String getModelName();
 }
