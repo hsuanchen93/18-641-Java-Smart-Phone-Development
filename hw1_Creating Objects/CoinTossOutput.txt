@@ -1,0 +1,55 @@
+case 1: toss the coin 0 times
+inital side up: heads
+total number of heads: 1
+total number of tails: 0
+
+case 2: toss the coin 5 times
+inital side up: heads
+toss 1: heads
+toss 2: heads
+toss 3: heads
+toss 4: tails
+toss 5: tails
+total number of heads: 4
+total number of tails: 2
+
+case 3: toss the coin 10 times
+inital side up: heads
+toss 1: heads
+toss 2: heads
+toss 3: tails
+toss 4: heads
+toss 5: heads
+toss 6: tails
+toss 7: tails
+toss 8: tails
+toss 9: tails
+toss 10: heads
+total number of heads: 6
+total number of tails: 5
+
+case 4: toss the coin 20 times
+inital side up: heads
+toss 1: tails
+toss 2: tails
+toss 3: tails
+toss 4: tails
+toss 5: tails
+toss 6: tails
+toss 7: tails
+toss 8: tails
+toss 9: heads
+toss 10: heads
+toss 11: tails
+toss 12: tails
+toss 13: heads
+toss 14: heads
+toss 15: tails
+toss 16: heads
+toss 17: heads
+toss 18: tails
+toss 19: heads
+toss 20: tails
+total number of heads: 8
+total number of tails: 13
+

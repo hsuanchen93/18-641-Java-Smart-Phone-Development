@@ -1,0 +1,50 @@
+case 1:
+No Parking Ticket Issued
+
+case 2:
+No Parking Ticket Issued
+
+case 3:
+Fine: 25
+Information of illegally parked car:
+Make: Honda
+Model: Accord
+Color: Silver
+License: F12345
+Police officer issuing the ticket:
+Name: Abby
+Badge: AAA789
+
+case 4:
+Fine: 25
+Information of illegally parked car:
+Make: Honda
+Model: Accord
+Color: Silver
+License: F12345
+Police officer issuing the ticket:
+Name: Abby
+Badge: AAA789
+
+case 5:
+Fine: 35
+Information of illegally parked car:
+Make: Honda
+Model: Accord
+Color: Silver
+License: F12345
+Police officer issuing the ticket:
+Name: Abby
+Badge: AAA789
+
+case 6:
+Fine: 45
+Information of illegally parked car:
+Make: Honda
+Model: Accord
+Color: Silver
+License: F12345
+Police officer issuing the ticket:
+Name: Abby
+Badge: AAA789
+
