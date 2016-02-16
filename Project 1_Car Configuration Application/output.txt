@@ -1,4 +1,4 @@
-<-----Testing API (Create Auto Instance)----->
+<-----TESTING API----->
 Make: Fort
 Model: Focus Wagon ZTW
 Base Price: $18445.00
@@ -26,12 +26,12 @@ Option 3: Side Impact Air Bags
 Option 4: Power Moonroof
    Present: $595.00
    Not Present: $0.00
-<-----Testing API (Update Auto Instance)----->
+<-----Edit Option Set Name Instance----->
 Make: Fort
 Model: Focus Wagon ZTW
 Base Price: $18445.00
-Option 0: NEW COLOR
-   Fort Knox Gold Clearcoat Metallic: $100.50
+Option 0: Color
+   Fort Knox Gold Clearcoat Metallic: $0.00
    Liquid Grey Clearcoat Metallic: $0.00
    Infra-Red Clearcoat: $0.00
    Grabber Green Clearcoat Metallic: $0.00
@@ -51,125 +51,103 @@ Option 2: Brakes/Traction Control
 Option 3: Side Impact Air Bags
    Present: $350.00
    Not Present: $0.00
-Option 4: Power Moonroof
+Option 4: NEW NAME
    Present: $595.00
    Not Present: $0.00
-<-----Testing API (Delete Auto Instance)----->
+<-----Edit Option Price Instance----->
 Make: Fort
 Model: Focus Wagon ZTW
 Base Price: $18445.00
-Option 0: Transmission
+Option 0: Color
+   Fort Knox Gold Clearcoat Metallic: $0.00
+   Liquid Grey Clearcoat Metallic: $0.00
+   Infra-Red Clearcoat: $0.00
+   Grabber Green Clearcoat Metallic: $0.00
+   Sangria Red Clearcoat Metallic: $0.00
+   French Blue Clearcoat Metallic: $0.00
+   Twilight Blue Clearcoat Metallic: $0.00
+   CD Silver Clearcoat Metallic: $0.00
+   Pitch Black Clearcoat: $0.00
+   Cloud 9 White Clearcoat: $0.00
+Option 1: Transmission
    Automatic: $0.00
    Manual: $-815.00
-Option 1: Brakes/Traction Control
-   Standard: $0.00
-   ABS with Advance Trac: $1625.00
-Option 2: Power Moonroof
-   Present: $595.00
-   Not Present: $0.00
-<-----Testing API (Set Auto Instance)----->
-Make: Fort
-Model: Focus Wagon ZTW
-Base Price: $18445.00
-Option 0 - Transmission: Automatic($0.00)
-Option 1 - Brakes/Traction Control: Present($595.00)
-<-----DONE Testing API----->
-
-
-<-----Custom Exceptions List----->
-errorno=1, errormsg=Automobile Does Not Exist
-errorno=2, errormsg=Missing Base Price
-errorno=3, errormsg=Missing OptionSet Data
-errorno=4, errormsg=Missing Option Data
-errorno=5, errormsg=File Not Found
-<-----DONE Custom Exceptions List----->
-
-
-<-----Testing Exception 1----->
-02/08/2016 11:04:21 AM: AutoException [errorno=1, errormsg=Automobile Does Not Exist
-<-----DONE Testing Exception 1----->
-
-
-<-----Testing Exception 2----->
-02/08/2016 11:04:21 AM: AutoException [errorno=2, errormsg=Missing Base Price
-Enter Base Price: -100
-Make: Fort
-Model: Model 2
-Base Price: $-100.00
-Option 0: Power Moonroof
-   Present: $595.00
-   Not Present: $0.00
-<-----DONE Testing Exception 2----->
-
-
-<-----Testing Exception 3----->
-02/08/2016 11:04:24 AM: AutoException [errorno=3, errormsg=Missing OptionSet Data
-<-----DONE Testing Exception 3----->
-
-
-<-----Testing Exception 4----->
-02/08/2016 11:04:24 AM: AutoException [errorno=4, errormsg=Missing Option Data
-<-----DONE Testing Exception 4----->
-
-
-<-----Testing Exception 5----->
-02/08/2016 11:04:24 AM: AutoException [errorno=5, errormsg=File Not Found
-Enter Correct File Name: FordZTW_5.txt
-Make: Fort
-Model: Model 5
-Base Price: $18445.00
-Option 0: Brakes/Traction Control
+Option 2: Brakes/Traction Control
    Standard: $0.00
    ABS: $400.00
    ABS with Advance Trac: $1625.00
-Option 1: Power Moonroof
-   Present: $595.00
+Option 3: Side Impact Air Bags
+   Present: $350.00
    Not Present: $0.00
-<-----DONE Testing Exception 5----->
+Option 4: NEW NAME
+   Present: $595.00
+   Not Present: $-30.78
 
 
-<-----Testing Print All----->
+
+
+<-----TESTING THREADS SYNCHRONIZATION SUCCESS——>
 Make: Fort
-Model: Focus Wagon ZTW
-Base Price: $18445.00
+Model: Thread
+Base Price: $100.00
 Option 0: Transmission
    Automatic: $0.00
    Manual: $-815.00
-Option 1: Brakes/Traction Control
-   Standard: $0.00
-   ABS with Advance Trac: $1625.00
-Option 2: Power Moonroof
-   Present: $595.00
-   Not Present: $0.00
+Option 1: Color
+   Blue: $595.00
+   Black: $0.00
+<-----immediately, original----->
 Make: Fort
-Model: Model 2
-Base Price: $-100.00
-Option 0: Power Moonroof
-   Present: $595.00
-   Not Present: $0.00
+Model: Thread
+Base Price: $100.00
+Option 0: Transmission
+   Automatic: $0.00
+   Manual: $-815.00
+Option 1: Color
+   Blue: $595.00
+   Black: $0.00
+<-----sleep for 3 sec, after edit----->
 Make: Fort
-Model: Model 5
-Base Price: $18445.00
-Option 0: Brakes/Traction Control
-   Standard: $0.00
-   ABS: $400.00
-   ABS with Advance Trac: $1625.00
-Option 1: Power Moonroof
-   Present: $595.00
-   Not Present: $0.00
-<-----DONE Testing Print All----->
+Model: Thread
+Base Price: $100.00
+Option 0: Transmission
+   Automatic: $0.00
+   Manual: $-815.00
+Option 1: NEW NAME YAY
+   Blue: $595.00
+   Black: $-300.00
 
 
-<-----Testing Print All Choices----->
+
+
+<-----TESTING THREADS SYNCHRONIZATION FAILURE——>
 Make: Fort
-Model: Focus Wagon ZTW
-Base Price: $18445.00
-Option 0 - Transmission: Automatic($0.00)
-Option 1 - Brakes/Traction Control: Present($595.00)
-Total Price: $19040.0
+Model: Thread
+Base Price: $100.00
+Option 0: Transmission
+   Automatic: $0.00
+   Manual: $-815.00
+Option 1: Color
+   Blue: $595.00
+   Black: $0.00
+<-----immediately, original----->
 Make: Fort
-Model: Model 2
-Base Price: $-100.00
-Option 0 - Power Moonroof: Present($595.00)
-Total Price: $495.0
-<-----DONE Testing Print All----->
+Model: Thread
+Base Price: $100.00
+<-------------OPTION SET NOT FOUND------------->
+Option 0: Transmission
+   Automatic: $0.00
+   Manual: $-815.00
+Option 1: Color
+   Blue: $595.00
+   Black: $0.00
+<-----sleep for 3 sec, after edit----->
+Make: Fort
+Model: Thread
+Base Price: $100.00
+Option 0: Transmission
+   Automatic: $0.00
+   Manual: $-815.00
+Option 1: NEW NAME YAY
+   Blue: $595.00
+   Black: $0.00

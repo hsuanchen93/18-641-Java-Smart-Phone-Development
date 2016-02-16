@@ -1,5 +1,13 @@
 /*
  * Hsuan Chen (hsuanc)
+ * 
+ * CreateAuto - BuildAuto, printAuto
+ * UpdateAuto - updateOptionSetName, updateOptionPrice, deleteOptionSet, 
+ * 				deleteOption, setOptionChoice
+ * FixAuto - fix
+ * InfoAuto - modelExist, printAutoHashMap, printChoices, getTotalPrice
+ * EditAuto - editOptionPrice
+ * 
  */
 
 package adapter;
@@ -11,9 +19,11 @@ import java.util.Set;
 
 import exception.AutoException;
 import model.*;
+import scale.EditOptions;
 import util.FileIO;
 
 public abstract class proxyAutomobile {
+	//private static Automobile a1;
 	private static LinkedHashMap<String,Automobile> autoLHashMap = new LinkedHashMap<String,Automobile>();
 	
 	/* CreatAuto */
@@ -112,6 +122,25 @@ public abstract class proxyAutomobile {
 			return autoLHashMap.get(modelName).getTotalPrice();
 		}
 		return -1;
+	}
+
+	
+	/* EditAuto */
+	//editOptionSetName
+		public void editOptionSetName(String modelName, String optionSetName, String newName) {
+			if(modelExist(modelName)) {
+				String[] args = new String[]{optionSetName, newName};
+				EditOptions editThread = new EditOptions(autoLHashMap.get(modelName), "editOptionSetName", args);
+				editThread.start();
+			}
+		}
+	//editOptionPrice
+	public void editOptionPrice(String modelName, String optionSetName, String optionName, double newPrice) {
+		if(modelExist(modelName)) {
+			String[] args = new String[]{optionSetName, optionName, String.valueOf(newPrice)};
+			EditOptions editThread = new EditOptions(autoLHashMap.get(modelName), "editOptionPrice", args);
+			editThread.start();
+		}
 	}
 	
 }

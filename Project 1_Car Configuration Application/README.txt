@@ -1,26 +1,19 @@
-util.FileIO: used AutoException.fix(int errorno) to fix internal “missing base price” Exception by asking an user-entered base price (keep asking the user until the user has entered a valid number).
+scale.EditOptions: Edit OptionSets and Options in its own thread, synchronize the methods by using “synchronized(Automobile)” in EditOptions because need to lock the actual object being changed (aka Automobile instance) whenever a new thread is created to edit the instance (secure the lock before making changes so other threads can’t access the static instance at the same time).
 
-adapter: proxyAutomobile implements all 4 interfaces so implemented all functions within the proxyAutomobile abstract class. Then to create and use API, created the class BuildAuto to extend from proxyAutomobile.
-adapter.UpdateAuto: added delete and set APIs.
-adapter.InfoAuto: added a new interface to deal with printing out and getting different kinds of information on Automobile.
-adapter.proxyAutomobile: with a LinkedHashMap, had to use an Iterator to access and print out all the available models.
+adapter.EditAuto: API/interface for editing OptionSets and Options in their own threads.
 
-model.Automobile: when deleting/updating OptionSet or Option, always check if present value is in choice and make adjustment as well.
-model.Automobile: class to tackle CRUD operation on a group of Automobiles
-
-Driver: tests all create/update/delete/set/print APIs (along with old tests of Exceptions)
+Driver:
+->(Test 1): Tests the API and EditOptions by calling editOptionSetName and editOptionPrice under normal circumstances and working code.
+->(Test 2): Tests the success of the synchronization by creating 2 threads where the first one will change OptionSet Name and the second thread will change the Option Price of the new OptionSet. By letting thread editOptionSetName sleep 3000, we can see if synchronization is achieved because thread editOptionPrice is called right after in the main thread. Thus, under synchronization, thread 2 will wait for thread 1 finish the sleeping and the editing before being able to edit the Automobile instance itself. As shown in output, I also added a print statement immediately to show that both threads have already started but nothing has changed due to the sleep. Then, I print out the result again after waiting another ~3 seconds, and it shows correct edits in the Automobile instance.
+->(Test 3): By using the same test code taking out the “synchronized(Automobile)” in EditOptions, I can show that synchronization cannot work without the “synchronized” keyword. With the 3000 sleep in thread editOptionSetName, the OptionSet Name wasn’t able to changed to “NEW NAME YAY” before editOption Price was called. Thus, printing out “OPTION SET NOT FOUND” while the final result shows that only OptionSet Name was successfully edited while the price remained $0.
 
 
 src: contains the source code for the assignment
 
 FordZTW.txt: given input, used to test API
-FordZTW_2.txt: no base price, used to test catching and fixing Exception 2
-FordZTW_3.txt: missing an OptionSet, used to test catching Exception 3
-FordZTW_4.txt: missing an Option, used to test catching Exception 4
+Thread.txt: input to test threads
 
-output.txt: output of the Driver
+output.txt: output of the Driver tests
 
-Exceptions.txt: list of all possible Custom Exceptions
-ExceptionLog.txt: log file of exceptions
-
-Class Diagram: class diagram for Project 1 Unit 2 Part A
+Overview: an overview of the app
+Class Diagram: class diagram for Project 1 Unit 3

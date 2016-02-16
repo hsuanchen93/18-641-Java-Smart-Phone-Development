@@ -183,6 +183,11 @@ public class Automobile implements Serializable {
 			optset.get(findOptionSetIndex(optionSet)).getOption(findOptionIndex(optionSet,nameOld)).setPrice(priceNew);
 			optset.get(findOptionSetIndex(optionSet)).getOption(findOptionIndex(optionSet,nameOld)).setName(nameNew);
 		}
+		/*
+		else {
+			System.out.println("<-------------OPTION SET NOT FOUND------------->");
+		}
+		*/
 	}
 	
 	/* Total Price - return the total price of Automobile */

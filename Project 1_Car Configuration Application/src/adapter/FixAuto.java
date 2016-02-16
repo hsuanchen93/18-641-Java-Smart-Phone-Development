@@ -1,3 +1,7 @@
+/*
+ * Hsuan Chen (hsuanc)
+ */
+
 package adapter;
 
 public interface FixAuto {

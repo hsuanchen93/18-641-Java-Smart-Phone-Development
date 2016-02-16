@@ -1,0 +1,6 @@
+Make:Fort
+Model:Thread
+Base Price:$100
+Options(2):
+>Transmission(2):Automatic($0),Manual($-815)
+>Color(2):Blue($595),Black($0)
