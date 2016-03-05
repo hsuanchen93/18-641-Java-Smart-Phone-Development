@@ -1,0 +1,5 @@
+02/08/2016 11:04:21 AM: AutoException [errorno=1, errormsg=Automobile Does Not Exist
+02/08/2016 11:04:21 AM: AutoException [errorno=2, errormsg=Missing Base Price
+02/08/2016 11:04:24 AM: AutoException [errorno=3, errormsg=Missing OptionSet Data
+02/08/2016 11:04:24 AM: AutoException [errorno=4, errormsg=Missing Option Data
+02/08/2016 11:04:24 AM: AutoException [errorno=5, errormsg=File Not Found

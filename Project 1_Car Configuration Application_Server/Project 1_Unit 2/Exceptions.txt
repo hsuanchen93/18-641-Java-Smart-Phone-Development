@@ -1,0 +1,5 @@
+errorno=1, errormsg=Automobile Does Not Exist
+errorno=2, errormsg=Missing Base Price
+errorno=3, errormsg=Missing OptionSet Data
+errorno=4, errormsg=Missing Option Data
+errorno=5, errormsg=File Not Found

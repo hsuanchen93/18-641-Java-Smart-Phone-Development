@@ -1,0 +1,116 @@
+<<<<<CASE 1: Regular FordZTW.txt>>>>>
+Name: Focus Wagon ZTW
+Base Price: $18445.00
+Option 1: Color
+   Fort Knox Gold Clearcoat Metallic: $0.00
+   Liquid Grey Clearcoat Metallic: $0.00
+   Infra-Red Clearcoat: $0.00
+   Grabber Green Clearcoat Metallic: $0.00
+   Sangria Red Clearcoat Metallic: $0.00
+   French Blue Clearcoat Metallic: $0.00
+   Twilight Blue Clearcoat Metallic: $0.00
+   CD Silver Clearcoat Metallic: $0.00
+   Pitch Black Clearcoat: $0.00
+   Cloud 9 White Clearcoat: $0.00
+Option 2: Transmission
+   Automatic: $0.00
+   Manual: $-815.00
+Option 3: Brakes/Traction Control
+   Standard: $0.00
+   ABS: $400.00
+   ABS with Advance Trac: $1625.00
+Option 4: Side Impact Air Bags
+   Present: $350.00
+   Not Present: $0.00
+Option 5: Power Moonroof
+   Present: $595.00
+   Not Present: $0.00
+-----After Serialization/Deserialization-----
+Name: Focus Wagon ZTW
+Base Price: $18445.00
+Option 1: Color
+   Fort Knox Gold Clearcoat Metallic: $0.00
+   Liquid Grey Clearcoat Metallic: $0.00
+   Infra-Red Clearcoat: $0.00
+   Grabber Green Clearcoat Metallic: $0.00
+   Sangria Red Clearcoat Metallic: $0.00
+   French Blue Clearcoat Metallic: $0.00
+   Twilight Blue Clearcoat Metallic: $0.00
+   CD Silver Clearcoat Metallic: $0.00
+   Pitch Black Clearcoat: $0.00
+   Cloud 9 White Clearcoat: $0.00
+Option 2: Transmission
+   Automatic: $0.00
+   Manual: $-815.00
+Option 3: Brakes/Traction Control
+   Standard: $0.00
+   ABS: $400.00
+   ABS with Advance Trac: $1625.00
+Option 4: Side Impact Air Bags
+   Present: $350.00
+   Not Present: $0.00
+Option 5: Power Moonroof
+   Present: $595.00
+   Not Present: $0.00
+
+
+<<<<<CASE 2: 0 Options for Color>>>>>
+Name: Focus Wagon ZTW
+Base Price: $18445.00
+Option 1: Brakes/Traction Control
+   Standard: $0.00
+   ABS: $400.00
+   ABS with Advance Trac: $1625.00
+Option 2: Power Moonroof
+   Present: $595.00
+   Not Present: $0.00
+Option 3: Color
+-----After Serialization/Deserialization-----
+Name: Focus Wagon ZTW
+Base Price: $18445.00
+Option 1: Brakes/Traction Control
+   Standard: $0.00
+   ABS: $400.00
+   ABS with Advance Trac: $1625.00
+Option 2: Power Moonroof
+   Present: $595.00
+   Not Present: $0.00
+Option 3: Color
+
+
+<<<<<CASE 3: 0 OptionSets for FordZTW>>>>>
+Name: Focus Wagon ZTW
+Base Price: $18445.00
+-----After Serialization/Deserialization-----
+Name: Focus Wagon ZTW
+Base Price: $18445.00
+
+
+<<<<<CASE 4: Test Update and Delete>>>>>
+-----Original-----
+Name: Focus Wagon ZTW
+Base Price: $18445.00
+Option 1: Brakes/Traction Control
+   Standard: $0.00
+   ABS: $400.00
+   ABS with Advance Trac: $1625.00
+Option 2: Power Moonroof
+   Present: $595.00
+   Not Present: $0.00
+Option 3: Color
+-----After Updating-----
+Name: Focus Wagon ZTW
+Base Price: $18445.00
+Option 1: New Option
+   111111: $0.00
+   222222: $1000.00
+Option 2: Power Moonroof
+   Present: $595.00
+   UPDATE: $50.00
+Option 3: Color
+-----After Deleting-----
+Name: Focus Wagon ZTW
+Base Price: $18445.00
+Option 1: Power Moonroof
+   Present: $595.00
+Option 2: Color

@@ -1,0 +1,130 @@
+Menu: 
+1) Upload Properties file
+2) Configure a car
+Select option: asdf
+Invalid option. Please enter valid number.
+
+Menu: 
+1) Upload Properties file
+2) Configure a car
+Select option: 3
+No option 3
+
+Menu: 
+1) Upload Properties file
+2) Configure a car
+Select option: 1
+Enter Properties file path: nofile
+"nofile" Not Found
+
+Menu: 
+1) Upload Properties file
+2) Configure a car
+Select option: 1
+Enter Properties file path: ToyotaPrius.properties
+Server: Automobile created successfully!
+
+Menu: 
+1) Upload Properties file
+2) Configure a car
+Select option: 1
+Enter Properties file path: FortFocus.properties
+Server: Automobile created successfully!
+
+Menu: 
+1) Upload Properties file
+2) Configure a car
+Select option: 1
+Enter Properties file path: NoOptions.properties
+Server: Automobile created successfully!
+
+Menu: 
+1) Upload Properties file
+2) Configure a car
+Select option: 2
+List of Available Models:
+Prius
+Focus
+Options
+Select Model: no
+"no" model doesn't exist
+
+Menu: 
+1) Upload Properties file
+2) Configure a car
+Select option: 2
+List of Available Models:
+Prius
+Focus
+Options
+Select Model: Prius
+
+Configure Menu:
+1) List all possible options
+2) Select an option
+3) Display selected options
+4) Exit
+Select option: 1
+Make: Toyota
+Model: Prius
+Base Price: $18000.00
+Option 1: Transmission
+   Manual: $-815.00
+   Automatic: $0.00
+Option 2: Brakes
+   Regular: $0.00
+   ABS: $400.00
+
+Configure Menu:
+1) List all possible options
+2) Select an option
+3) Display selected options
+4) Exit
+Select option: 2
+Enter OptionSet: Transmission
+Enter Option: Manual
+
+Configure Menu:
+1) List all possible options
+2) Select an option
+3) Display selected options
+4) Exit
+Select option: 3
+Make: Toyota
+Model: Prius
+Base Price: $18000.00
+Option 1 - Transmission: Manual($-815.00)
+Total Price: $17185.00
+
+Configure Menu:
+1) List all possible options
+2) Select an option
+3) Display selected options
+4) Exit
+Select option: 2
+Enter OptionSet: Brakes
+Enter Option: ABS
+
+Configure Menu:
+1) List all possible options
+2) Select an option
+3) Display selected options
+4) Exit
+Select option: 3
+Make: Toyota
+Model: Prius
+Base Price: $18000.00
+Option 1 - Transmission: Manual($-815.00)
+Option 2 - Brakes: ABS($400.00)
+Total Price: $17585.00
+
+Configure Menu:
+1) List all possible options
+2) Select an option
+3) Display selected options
+4) Exit
+Select option: 4
+Menu: 
+1) Upload Properties file
+2) Configure a car
+Select option:
