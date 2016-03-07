@@ -1,0 +1,30 @@
+Menu: 
+1) Upload Properties file
+2) Configure a car
+Select option: 1
+Enter Properties file path: ToyotaPrius.properties
+Server: Automobile created successfully!
+
+Menu: 
+1) Upload Properties file
+2) Configure a car
+Select option: 1
+Enter Properties file path: FordFocus.properties
+Server: Automobile created successfully!
+
+Menu: 
+1) Upload Properties file
+2) Configure a car
+Select option: 1
+Enter Properties file path: LexusIS250.properties
+Server: Automobile created successfully!
+
+Menu: 
+1) Upload Properties file
+2) Configure a car
+Select option: 2
+List of Available Models:
+Prius
+Focus
+IS250
+Select Model: 

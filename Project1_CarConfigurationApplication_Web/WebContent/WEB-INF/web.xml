@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <servlet>
+    <servlet-name>modelList</servlet-name>
+    <servlet-class>serverlet.ModelList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>modelList</servlet-name>
+    <url-pattern>/modelList</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>optionList</servlet-name>
+    <servlet-class>serverlet.OptionList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>optionList</servlet-name>
+    <url-pattern>/optionList</url-pattern>
+  </servlet-mapping>
+</web-app>

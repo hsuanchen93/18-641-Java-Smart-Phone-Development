@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=UTF-8">
+<title>Basic Car Choice</title>
+</head>
+<body>
+
+<h1>Basic Car Choice</h1>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$.get("modelList", function(responseData) {
+		var op = document.getElementById('model');
+		op.insertAdjacentHTML('beforeend', responseData);
+	});
+});
+</script>
+<script>
+function getOptions() {
+	$.get("optionList", $("#model option:selected").text() ,function(responseData) {
+		$("#options").html(responseData);
+	});
+}
+</script>
+
+<form id="form" action="/Project1_CarConfigurationApplication_Web/result.jsp" method="post">
+	<!-- Make/Model Option -->
+	<table border="1" style="width:50%">	
+		<tr>
+			<td>Model</td>            
+	    	<td><select id="model" name="model" onchange="getOptions()">
+					<!-- list of models available (load when document ready) -->
+	    		</select>
+	  		</td>
+	  	</tr>
+  	</table>
+	  	
+  	<!-- OptionSets -->
+  	<table id="options" border="1" style="width:50%">
+  		<!-- list of OptionSets available -->
+  	</table>
+	
+	<input type="submit" value="Done">
+</form>
+
+</body>
+</html>
