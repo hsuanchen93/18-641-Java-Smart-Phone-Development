@@ -1,0 +1,7 @@
+Make:Lexus
+Model:IS250
+Base Price:$16985
+Options(3):
+>Color(3):Black($0),Silver($0),White($0)
+>GPS(2):Present($700),Not Present($0)
+>Power Moonroof(2):Present($595),Not Present($0)

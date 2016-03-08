@@ -58,6 +58,32 @@ public class Automobile implements Serializable {
 		}
 		return -1;
 	}
+	public String getOptionSetName(int index) {
+		if(index < optset.size() && index >= 0) {
+			return optset.get(index).getName();
+		}
+		return null;
+	}
+	public ArrayList<String> getOptionNames(int optsetIndex) {
+		ArrayList<String> result = new ArrayList<String>();
+		if(optsetIndex < optset.size() && optsetIndex >= 0) {
+			for(int i=0; i<optset.get(optsetIndex).getOption().size(); i++) {
+				result.add(optset.get(optsetIndex).getOption().get(i).getName());
+			}
+			return result;
+		}
+		return null;
+	}
+	public ArrayList<Double> getOptionPrice(int optsetIndex) {
+		ArrayList<Double> result = new ArrayList<Double>();
+		if(optsetIndex < optset.size() && optsetIndex >= 0) {
+			for(int i=0; i<optset.get(optsetIndex).getOption().size(); i++) {
+				result.add(optset.get(optsetIndex).getOption().get(i).getPrice());
+			}
+			return result;
+		}
+		return null;
+	}
 	
 	/* Setters */
 	public void setMake(String make) {

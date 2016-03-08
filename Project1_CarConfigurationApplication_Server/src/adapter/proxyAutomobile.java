@@ -21,6 +21,10 @@ import java.util.LinkedHashMap;
 import java.util.Properties;
 import java.util.Set;
 
+import database.CreateAutoDB;
+import database.Database;
+import database.DeleteAutoDB;
+import database.UpdateAutoDB;
 import exception.AutoException;
 import model.*;
 import scale.EditOptions;
@@ -67,6 +71,8 @@ public abstract class proxyAutomobile {
 				try {
 					Automobile a1 = new FileIO().buildAutoObject(filename);
 					autoLHashMap.put(a1.getModel(), a1);
+					CreateAutoDB db = new Database();
+					db.createAutoDB(a1);
 				} catch (AutoException e) {
 					//Fix exception 5: invalid filename
 					if(e.getErrorno()==5) {
@@ -81,6 +87,8 @@ public abstract class proxyAutomobile {
 				Automobile a1 = new FileIO().buildAutoObjectProperties(filename);
 				if(a1!=null) {
 					autoLHashMap.put(a1.getModel(), a1);
+					CreateAutoDB db = new Database();
+					db.createAutoDB(a1);
 				}
 				break;
 		}
@@ -92,18 +100,32 @@ public abstract class proxyAutomobile {
 		}
 	}
 	
+	/* DeleteAuto */
+	//deleteAuto
+	public void deleteAuto(String modelName) {
+		autoLHashMap.remove(modelName);
+		DeleteAutoDB db = new Database();
+		db.deleteAuto(modelName);
+	}
 	
 	/* UpdateAuto */
 	//updateOptionSetName
 	public void updateOptionSetName(String modelName, String optionSetName, String newName) {
 		if(modelExist(modelName)) {
 			autoLHashMap.get(modelName).updateOptionSet(optionSetName, newName);
+			UpdateAutoDB db = new Database();
+			db.updateOptionSetNameDB(modelName, optionSetName, newName);
 		}
 	}
 	//updateOptionPrice
 	public void updateOptionPrice(String modelName, String optionSetName, String optionName, double newPrice) {
 		if(modelExist(modelName)) {
+			int optsetIndex = autoLHashMap.get(modelName).findOptionSetIndex(optionSetName);
+			int optIndex = autoLHashMap.get(modelName).findOptionIndex(optionSetName, optionName);
+			ArrayList<Double> prices = autoLHashMap.get(modelName).getOptionPrice(optsetIndex);
 			autoLHashMap.get(modelName).updateOption(optionSetName, optionName, optionName, newPrice);
+			UpdateAutoDB db = new Database();
+			db.updateOptionPriceDB(modelName, optionSetName, optionName, prices.get(optIndex), newPrice);
 		}
 	}
 	//deleteOptionSet

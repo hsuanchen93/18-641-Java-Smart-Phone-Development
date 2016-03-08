@@ -1,0 +1,6 @@
+Make:Toyota
+Model:Prius
+Base Price:$18000
+Options(2):
+>Transmission(2):Automatic($0),Manual($-815)
+>Brakes(2):Regular($0),ABS($400)

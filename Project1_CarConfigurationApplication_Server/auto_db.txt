@@ -1,0 +1,8 @@
+#url:
+jdbc:mysql://localhost:3306/auto
+#driverName:
+com.mysql.jdbc.Driver
+#user:
+root
+#password:
+root
