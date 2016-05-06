@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">HW2_MortgageApp</string>
+
+    <string name="purchase_price">Purchase Price: $</string>
+    <string name="mortgage_term">Mortgage Term: </string>
+    <string name="interest_rate">Interest Rate: </string>
+    <string name="first_payment_date">First Payment Date: </string>
+
+    <string name="percentage">%</string>
+    <string name="years">years</string>
+
+    <string name="calculate">Calculate</string>
+
+    <string name="total_monthly_payment">Total Monthly Payment: $</string>
+    <string name="total_mortgage_payment">Total of Payment for Mortgage Term: $</string>
+    <string name="payoff_date">Payoff Date: </string>
+</resources>
